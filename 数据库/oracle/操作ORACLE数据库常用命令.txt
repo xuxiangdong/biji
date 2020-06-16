@@ -1,0 +1,71 @@
+--导出语句
+expdp PORTALDEV/PORTALPWD@njoracle schemas=PORTALDEV directory=sysdir dumpfile=PORTALDEV20170302_2.dmp
+--导入语句
+impdp PORTALDEV/PORTALPWD dumpfile=PORTALDEV20170302.dmp directory=sysdir transform=OID:N remap_schema=hzuser:PORTALDEV  remap_tablespace=PORTALDEV_HZ_DATA:PORTAL_DATA;
+--导出8张表的语句（对应模式名位UQSM_DATA）
+expdp protol2/protol2pwd@njoracle schemas=protol2 directory=sysdir dumpfile=PROTOL220170119.dmp
+
+--删除表空间
+--1、重启oracle
+--1、登录20服务器
+--2、用dba用户登录
+sqlplus /'as sysdba'
+--3、执行命令，关闭oracle
+shutdown immediate
+--4、重启oracle
+startup
+
+--2、删除临时表空间
+alter tablespace PORTAL_TEMP offline;
+drop tablespace PORTAL_TEMP including contents and datafiles;
+--3、删除临正式空间
+alter tablespace PORTAL_DATA offline;
+drop tablespace PORTAL_DATA including contents and datafiles;
+--4、删除用户
+drop user PORTALDEV cascade;
+
+
+--查看现有表空间信息
+SELECT TABLESPACE_NAME,FILE_ID,FILE_NAME,round(bytes/(1024*1024),0) total_space FROM DBA_DATA_FILES ORDER BY TABLESPACE_NAME
+
+--创建临时表空间
+CREATE TEMPORARY TABLESPACE PORTAL_TEMP 
+TEMPFILE '/oracle/oradata/njoracle/protal_temp.dbf' 
+size 8000m 
+autoextend on 
+next 50m maxsize unlimited 
+extent management local;
+
+
+--创建数据表空间
+CREATE TABLESPACE PORTAL_DATA 
+LOGGING 
+DATAFILE '/oracle/oradata/njoracle/portal_data.dbf' 
+SIZE 8000m 
+autoextend on 
+next 50M maxsize unlimited 
+extent management local;
+
+--创建用户并指定表空间
+CREATE USER PORTALDEV IDENTIFIED BY PORTALPWD 
+DEFAULT TABLESPACE PORTAL_DATA 
+TEMPORARY TABLESPACE PORTAL_TEMP;
+
+--给用户授予权限
+GRANT connect,RESOURCE,dba to PORTALDEV;--经过测试，只有给该用户授dba权限才能正常使用expdp命令导出dmp文件
+
+--修改创建的用户的密码
+ALTER USER UQSM IDENTIFIED BY UQSMPWD;
+
+--删除表空间
+alter tablespace 表空间名 offline;
+drop tablespace 表空间名 including contents and datafiles;
+drop user 用户名 cascade;
+
+--查询DCCX KHCX JDCX 三张表的分区信息
+SELECT * FROM USER_TAB_PARTITIONS --TABLE_NAME,PARTITION_NAME,NUM_ROWS
+WHERE TABLE_NAME = 'DCCX';
+SELECT * FROM USER_TAB_PARTITIONS --TABLE_NAME,PARTITION_NAME,NUM_ROWS
+WHERE TABLE_NAME = 'KHCX';
+SELECT * FROM USER_TAB_PARTITIONS --TABLE_NAME,PARTITION_NAME,NUM_ROWS
+WHERE TABLE_NAME = 'JDCX';

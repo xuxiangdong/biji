@@ -1,0 +1,139 @@
+Ctrl + Shift + R    ===    Ctrl + Shift + N  查找文件(包括java、html、css等等所有文件)
+                           Ctrl + N  只查找java文件
+                           Ctrl + Shift + Alt + N  定位到标示，比如类中的方法、属性等等
+                           Shift +Shift      可以查看任意文件，即使你写了一个功能为hello，这样我们在java/js等等文件中都有hello，但是只要使用这个功能还是可以快速的将它从文件夹中找到！
+                           模糊匹配：*  
+                            对于骆驼命名规则，如UserManagerDao，只需输入UMD查找即可
+                            对于方法名，开始都是小写，如getUserName，只需输入*UN查找即可
+
+Alt+F1  快速打开视图
+Alt+0/1/2/3/4/5/6/7/8  快速打开\关闭对应的视图
+Ctrl + ` === 切换主题、代码风格、全屏等等
+Ctrl + Shift + F    ===    Ctrl + Alt + L 格式化代码
+                           Ctrl + Shift + F 查找包含指定字符串的文件 
+Alt + Shift + S === Alt + Insert 生成代码(如get,set方法,构造函数等)
+F2   ===  Shift + F6
+Ctrl + F + F  ===  Ctrl+R 替换文本
+Ctrl + F  ===  Ctrl+F 查找文本
+Alt + / === Ctrl + Shift + Space 自动补全代码
+            Alt + / 切换符合条件的代码
+
+
+Ctrl + L === Ctrl + G  跳转到指定行
+Ctrl + X  剪切行
+Ctrl + D  复制当前行到下一行
+Ctrl + Y  删除行
+Ctrl + V  粘贴
+Ctrl + Shift + V  粘贴历史
+Ctrl + / 或 Ctrl+Shift + /  注释（// 或者/*...*/ ）
+
+Ctrl + Alt + Enter 在当前行的上一行插入空行，光标定位到新插入的行
+Ctrl + Shift + Enter 当前行的下一行插入空行，光标定位到新插入的行
+
+Ctrl + Enter 在当前行的上一行插入空行，光标位置不变。（常用）
+Shift + Enter  在当前行的上一行插入空行，光标位置不变。（常用）
+
+Ctrl + F4	关闭当前标签页。
+Shift + F6	 修改文件名字。（常用）
+Ctrl + Alt + T    自动生成具有环绕性质的代码，比如：if..else,try..catch, for, synchronized 等等，使用前要先选择好需要环绕的代码块。（常用）
+Ctrl + W        选中当前光标所在的代码块，多次触发，代码块会逐级变大。（常用）
+Ctrl + Shift + W    是 Ctrl + W 的反向操作，多次触发，代码块会逐级变小，最小变为光标。
+Ctrl + Alt + O      去除没有实际用到的包，这在 java 类中特别有用。（常用）
+Ctrl + F    在当前标签页中进行查找，还支持正则表达式哦。（常用）
+F3  如果找到了多个查找结果，每调用一次就会跳到下一个结果，很方便哦。
+Shift + F3  是 F3 的反向操作，即每调用一次就会跳到上一个结果。
+Ctrl + R	在当前标签页中进行替换操作。（常用）
+Ctrl + Shift + F	通过路径查找。（常用）
+Ctrl + Shift + R	通过路径替换。（常用）
+Ctrl + F12 查看当前类的结构
+
+
+Ctrl + 鼠标左键  进入接口
+Ctrl + Alt + 鼠标左键  进入实现类
+Ctrl + Alt + B 在选中一个接口，使用此快捷键会进入实现类中去（也可选中接口，右键Go To -》 Implementations）
+Ctrl + U 从实现类方法找继承接口方法
+
+Ctrl + Alt + I      按照缩进的设定，自动缩进所选择的代码段。
+Ctrl + Shift + J       把下一行的代码接续到当前的代码行。
+Ctrl + Shift + ]/[      从当前光标所在位置开始，一直选择到当前光标所在代码段起始或者结束位置。
+Ctrl + Delete       删除从当前光标所在位置开始，直到这个单词的结尾的内容。
+Ctrl + NumPad(+/-)      （数字小键盘上的加和减）展开或收缩代码段。 
+Ctrl + Q        展示某个类或者方法的 API 说明文档
+
+输出System.out.prntln():
+    sys+tab  ===  sout+tab
+
+编辑json字符串：
+String json="";
+将鼠标放入到双引号里；alt+enter 弹出框选择inject language视图，选中inject language or reference回车；在弹出框中选择JSON选项回车；
+再alt+enter 弹出框选择edit JSON Fragement回车即可。
+
+自动生成serialVersionUID：
+选中类名称，并按下Alt+Enter
+
+F8  ===  F6  跳到下一步，单步调试
+F9  ===  F8  跳到下一个断点，跨步调试
+F7  === F5 进入代码（方法）
+Shift + F8  ===  跳出代码（方法），返回到该方法被调用处的下一行语句
+
+Ctrl + Q 查看方法的注解信息
+
+fori/sout/psvm/geti  + Tab 快捷写for循环和打印代码，以及生成一个main方法，生成一个getInstance方法
+Ctrl + Alt + T 将选中的代码放在try……cache……、if……else…… 等等代码块中去
+Ctrl + O 重写方法
+Ctrl + I 实现方法（一般用在实现类中，实现implements的接口中的方法）
+Ctrl + Shift + U 对选中的内容大小写转换(全大写或全小写)
+Alt + Enter 导入包，自动修正（对于复制过来的代码，未导入import语句的时候有用）
+Ctrl + J 自动代码（fori/sout/psvm/geti等等，生成对应的代码）
+Ctrl + Shift + J 将选中的多行合并到一行
+Ctrl + E 最近打开的文件
+Ctrl + Shift + E 最近修改的文件
+Ctrl + H 查看当前类的继承结构
+
+移动2个窗口之间的分隔符：
+    Alt + 1 定位到project视图窗口，【Ctrl+Shift+左右箭头】来移动分界线
+编辑一行代码后，在最后加上分号：
+    Ctrl + Shift + Enter
+修改某个变量（在该文件中变量被引用n次）：
+    选中该变量名称，【Alt + J】按n次，就可以选中该n个变量，修改一个就全部都修改完了 
+
+
+
+
+recent 最近的
+favorites 收藏夹
+structure 结构，构造
+hierarchy 层级
+invalidate 使无效，使无价值
+generate 产生
+
+
+
+
+
+word快捷键
+    插入日期域 = 【Alt+Shift+D】
+    插入时间域 = 【Alt+Shift+T】
+    插入分页   =【Ctrl+Enter】
+    复制格式   = 【Ctrl+Shift+C】
+    粘贴格式   =【Ctrl+Shift+V】
+    加粗 = 【Ctrl+B】
+    倾斜 = 【Ctrl+I】
+    删除段落格式 = 【Ctrl+Q】
+    多次应用格式刷= 快速双击格式刷按钮，Esc键取消
+    移动选定段落 = 【Alt+Shift+↑/↓】
+    设置字体格式 = 【Ctrl+D】
+    下标和正常切换 = 【Ctrl+=】
+    上标和正常切换 = 【Ctrl+Shift+=】
+    默认字体样式 = 【Ctrl+Shift+Z】
+    降级正文 = 【Ctrl+Shift+N】
+    居中对齐 = 【Ctrl+E】
+    左对齐 = 【Ctrl+L】
+
+
+
+
+
+
+
+

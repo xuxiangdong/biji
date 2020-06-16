@@ -1,0 +1,22 @@
+1、String类的方法有哪些？
+2、HashMap、HashTab、ArrayList、LinkedList等等数据结构
+3、常用的一些工具方法类
+4、try……cache……resource的使用和java.lang.AutoCloseable接口的使用
+5、IO流的整体详解
+6、jdk8的新日期类java.time包中的LocalDateTime、DateTimeFormatter
+    时间戳转日期：
+            long d = 1575593469136L;
+            LocalDateTime ldt = Instant.ofEpochMilli(d).atZone(ZoneId.systemDefault()).toLocalDateTime();
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
+            System.out.println(ldt.format(dtf));
+7、AIO、NIO、BIO
+8、http协议原理和请求过程
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,43 @@
+--注意：下面操作需要在超级用户下进行，否者可能会出现问题
+--查看现有表空间信息
+SELECT TABLESPACE_NAME,FILE_ID,FILE_NAME,round(bytes/(1024*1024),0) total_space FROM DBA_DATA_FILES ORDER BY TABLESPACE_NAME
+
+--创建临时表空间
+CREATE TEMPORARY TABLESPACE UQSM_TEMP 
+TEMPFILE '/oracle/oradata/njoracle/uqsm_temp.dbf' 
+size 8000m 
+autoextend on 
+next 50m maxsize unlimited 
+extent management local;
+
+
+--创建数据表空间
+CREATE TABLESPACE UQSM_DATA 
+LOGGING 
+DATAFILE '/oracle/oradata/njoracle/uqsm_data.dbf' 
+SIZE 8000m 
+autoextend on 
+next 50M maxsize unlimited 
+extent management local;
+
+
+--创建用户并指定表空间
+CREATE USER xxd IDENTIFIED BY pwd 
+DEFAULT TABLESPACE UQSM_DATA 
+TEMPORARY TABLESPACE UQSM_TEMP;
+
+--给用户授予权限
+GRANT connect,RESOURCE,dba to UQSM;
+
+
+--修改创建的用户的密码
+ALTER USER UQSM IDENTIFIED BY UQSMPWD;
+
+
+
+
+
+
+
+
+
